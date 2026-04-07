@@ -1,6 +1,6 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: 'https://yourusername.github.io',
-  integrations: []
+  site: "https://sowjanya-bn.github.io",
+  base: "/barla-studio"
 });
