@@ -363,4 +363,133 @@ section {
   color: var(--accent);
 }
 
+
+.auto-carousel {
+  margin: 2rem 0 3rem;
+}
+
+.carousel-title {
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+}
+
+.carousel-shell {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  will-change: transform;
+}
+
+.carousel-item {
+  flex: 0 0 min(340px, 72vw);
+  margin: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.38);
+  box-shadow: var(--shadow);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .carousel-item {
+    flex: 0 0 84vw;
+  }
+
+  .carousel-item img {
+    height: 340px;
+  }
+}
+
+.horizontal-carousel {
+  margin: 2.5rem 0 4rem;
+}
+
+.carousel-title {
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+}
+
+.horizontal-carousel__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.horizontal-carousel__track {
+  display: flex;
+  flex-direction: row;   /* IMPORTANT */
+  gap: 1rem;
+  width: max-content;    /* IMPORTANT */
+  animation: scroll-horizontal 30s linear infinite;
+}
+
+.horizontal-carousel__viewport:hover .horizontal-carousel__track {
+  animation-play-state: paused;
+}
+
+.horizontal-carousel__item {
+  flex: 0 0 320px;       /* forces horizontal layout */
+  margin: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: var(--shadow);
+}
+
+.horizontal-carousel__item img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.horizontal-carousel__item img {
+  display: block;
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+}
+
+@keyframes scroll-horizontal {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+@media (max-width: 900px) {
+  .horizontal-carousel__item {
+    flex: 0 0 82vw;
+  }
+
+  .horizontal-carousel__item img {
+    height: 360px;
+  }
+}
+
+.gallery-section {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);  /* breakout trick */
+  padding: 2rem 0;
+}
+
 }

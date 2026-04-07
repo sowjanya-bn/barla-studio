@@ -1,0 +1,28 @@
+---
+interface ImageItem {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  title?: string;
+  images: ImageItem[];
+}
+
+const { title = "", images = [] } = Astro.props;
+const loopedImages = [...images, ...images];
+---
+
+<section class="horizontal-carousel">
+  {title && <div class="carousel-title">{title}</div>}
+
+  <div class="horizontal-carousel__viewport">
+  <div class="horizontal-carousel__track">
+    {images.concat(images).map((img) => (
+      <div class="horizontal-carousel__item">
+        <img src={img.src} alt={img.alt} />
+      </div>
+    ))}
+  </div>
+</div>
+</section>

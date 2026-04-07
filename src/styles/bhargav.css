@@ -1,0 +1,213 @@
+:root {
+  --bg: #f6f1ea;
+  --text: #241f1a;
+  --text-soft: #746c63;
+  --line: #ddd1c2;
+  --accent: #b88f6b;
+  --shadow: 0 12px 28px rgba(72, 52, 36, 0.08);
+
+  --page-gutter: clamp(1rem, 3vw, 2rem);
+  --page-width: min(100% - (var(--page-gutter) * 2), 1200px);
+  --section-gap: clamp(2rem, 5vw, 4rem);
+  --card-radius: clamp(16px, 2vw, 24px);
+  --carousel-gap: clamp(0.75rem, 1.8vw, 1.25rem);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top right, rgba(184, 143, 107, 0.08), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(170, 180, 165, 0.08), transparent 28%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  line-height: 1.65;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.page {
+  width: var(--page-width);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 4vw, 3rem);
+}
+
+.bhargav-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(240px, 0.8fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: end;
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.kicker,
+.carousel-title {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: clamp(0.68rem, 0.9vw, 0.74rem);
+  color: var(--text-soft);
+}
+
+.kicker {
+  margin-bottom: 0.65rem;
+}
+
+.bhargav-intro h1 {
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  line-height: 0.94;
+}
+
+.hero-text {
+  margin-top: 1rem;
+  max-width: 38rem;
+  font-size: clamp(1rem, 1.5vw, 1.08rem);
+  color: var(--text-soft);
+}
+
+.bhargav-note {
+  justify-self: end;
+  max-width: 25rem;
+  padding: 1rem 1.15rem;
+  border-left: 2px solid var(--accent);
+  border-radius: 0 16px 16px 0;
+  background: rgba(255, 255, 255, 0.24);
+  color: var(--text-soft);
+  font-style: italic;
+}
+
+.gallery-section {
+  width: var(--page-width);
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+}
+
+.carousel-title {
+  margin: 0 0 1rem;
+}
+
+.carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  flex-direction: row;
+  gap: var(--carousel-gap);
+  width: max-content;
+  transform: translateX(0);
+}
+
+.carousel-viewport:hover .carousel-track {
+  animation: scroll-horizontal 18s linear infinite;
+}
+
+.carousel-item {
+  flex: 0 0 clamp(220px, 30vw, 360px);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.34);
+  border: 1px solid rgba(183, 157, 132, 0.3);
+  box-shadow: var(--shadow);
+}
+
+.carousel-item img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  filter: saturate(1.03) contrast(0.96) brightness(1.01);
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.015);
+  filter: saturate(1.06) contrast(0.98) brightness(1.02);
+}
+
+@keyframes scroll-horizontal {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - (var(--carousel-gap) / 2)));
+  }
+}
+
+.bhargav-meta {
+  width: var(--page-width);
+  margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+  border-top: 1px solid rgba(183, 157, 132, 0.22);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.meta-block {
+  max-width: 34rem;
+}
+
+.meta-block h2 {
+  font-size: clamp(1.7rem, 2.5vw, 2rem);
+  margin-bottom: 0.7rem;
+}
+
+.meta-block p,
+.meta-block li {
+  font-size: 0.98rem;
+  color: var(--text-soft);
+}
+
+.meta-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.meta-block li {
+  margin-bottom: 0.45rem;
+}
+
+@media (max-width: 900px) {
+  .bhargav-hero,
+  .bhargav-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .bhargav-note {
+    justify-self: start;
+    max-width: 100%;
+  }
+}
