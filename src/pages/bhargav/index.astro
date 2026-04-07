@@ -20,9 +20,17 @@ const paintings = [
       <div class="bhargav-intro">
         <div class="kicker">Photography · Painting · Ongoing work</div>
         <h1>Bhargav</h1>
+
+        <p class="hero-statement">
+          A body of work rooted in coastal memory — interpreted through light and shadow.
+        </p>
+
         <p class="hero-text">
-          Working primarily through photography, with painting and photobook work
-          unfolding alongside it.
+          Working primarily through photography, with painting and photobook work unfolding alongside it.
+        </p>
+
+        <p class="hero-context">
+          Rooted in Visakhapatnam, now shaped at a distance.
         </p>
       </div>
 
@@ -32,8 +40,12 @@ const paintings = [
     </section>
   </main>
 
-  <section class="gallery-section">
+  <section class="gallery-section gallery-section--photo">
     <div class="carousel-title">Photography</div>
+    <p class="section-subtitle">
+      Moments shaped by light, haze and movement along the coast.
+    </p>
+
     <div class="carousel-viewport">
       <div class="carousel-track">
         {photography.concat(photography).map((img) => (
@@ -45,8 +57,22 @@ const paintings = [
     </div>
   </section>
 
-  <section class="gallery-section">
+  <section class="narrative-bridge">
+    <p>
+      The coast appears differently depending on when you arrive — early morning haze,
+      harsh midday light, or the quiet after sunset.
+    </p>
+    <p>
+      These works explore how light reveals, softens and sometimes obscures what is seen.
+    </p>
+  </section>
+
+  <section class="gallery-section gallery-section--painting">
     <div class="carousel-title">Paintings</div>
+    <p class="section-subtitle">
+      Studies in light, shadow and tonal contrast.
+    </p>
+
     <div class="carousel-viewport">
       <div class="carousel-track">
         {paintings.concat(paintings).map((img) => (
@@ -55,25 +81,6 @@ const paintings = [
           </div>
         ))}
       </div>
-    </div>
-  </section>
-
-  <section class="bhargav-meta">
-    <div class="meta-block">
-      <h2>Photobook</h2>
-      <p>
-        An ongoing long-form body of work exploring sequence, image relationships
-        and narrative through photography.
-      </p>
-    </div>
-
-    <div class="meta-block">
-      <h2>Exhibitions</h2>
-      <ul>
-        <li>Exhibition Name — City, Year</li>
-        <li>Art Fair Name — Year</li>
-        <li>Group Show — Location</li>
-      </ul>
     </div>
   </section>
 </BhargavLayout>

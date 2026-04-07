@@ -7,6 +7,15 @@ interface Props {
 }
 
 const { title, description = "Bhargav" } = Astro.props;
+
+const navItems = [
+  { href: "/bhargav/", label: "Home" },
+  { href: "/bhargav/photobook/", label: "Photobook" },
+  { href: "/bhargav/exhibitions/", label: "Exhibitions" },
+  { href: "/bhargav/contact/", label: "Contact" }
+];
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
@@ -21,6 +30,27 @@ const { title, description = "Bhargav" } = Astro.props;
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   </head>
   <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-title" href="/bhargav/">Bhargav</a>
+
+        <nav class="site-nav" aria-label="Primary">
+          {navItems.map((item) => {
+            const isActive = currentPath === item.href;
+            return (
+              <a
+                href={item.href}
+                class:list={["site-nav__link", { "is-active": isActive }]}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </nav>
+      </div>
+    </header>
+
     <slot />
   </body>
 </html>
