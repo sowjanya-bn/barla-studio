@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import SectionCard from "../../components/SectionCard.astro";
+---
+
+<BaseLayout title="Bhargav Photo Books | Barla Studio" description="Photo books and edition projects for Bhargav.">
+  <div class="site-shell">
+    <main class="page page--artist">
+      <div class="frame frame--soft">
+        <Header compact />
+      </div>
+
+      <section class="subpage-hero subpage-hero--books">
+        <div>
+          <div class="kicker">Bhargav / Photo Books</div>
+          <h1>Photo Books</h1>
+          <p>
+            This section is designed for book-based projects, small editions and visual narratives built through sequencing.
+            Later, each title can become its own project page with cover, spreads and notes.
+          </p>
+        </div>
+        <a class="button" href="/bhargav">Back to artist profile</a>
+      </section>
+
+      <section class="book-stack">
+        <article class="book-card">
+          <div class="book-cover"></div>
+          <div>
+            <div class="kicker">Edition / Placeholder</div>
+            <h2>Book Title One</h2>
+            <p>
+              A short description for the project, its visual rhythm and its underlying theme.
+            </p>
+          </div>
+        </article>
+
+        <article class="book-card">
+          <div class="book-cover book-cover--alt"></div>
+          <div>
+            <div class="kicker">Edition / Placeholder</div>
+            <h2>Book Title Two</h2>
+            <p>
+              Use this format for future books, zines or self-published editions.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section class="card-grid">
+        <SectionCard title="Why books">
+          <p>
+            Photo books are not just containers for images. They create sequence, rhythm and a slower way of seeing.
+          </p>
+        </SectionCard>
+        <SectionCard title="Future expansion">
+          <p>
+            Add a page later for each book, including cover images, selected spreads, edition details and contact information.
+          </p>
+        </SectionCard>
+      </section>
+
+      <Footer />
+    </main>
+  </div>
+</BaseLayout>

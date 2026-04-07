@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import SectionCard from "../../components/SectionCard.astro";
+---
+
+<BaseLayout title="Bhargav Paintings | Barla Studio" description="Painting portfolio section for Bhargav.">
+  <div class="site-shell">
+    <main class="page page--artist">
+      <div class="frame frame--soft">
+        <Header compact />
+      </div>
+
+      <section class="subpage-hero">
+        <div>
+          <div class="kicker">Bhargav / Paintings</div>
+          <h1>Paintings</h1>
+          <p>
+            A dedicated space for painted work, process, texture and selected canvases.
+            You can turn each work into a project page later if needed.
+          </p>
+        </div>
+        <a class="button" href="/bhargav">Back to artist profile</a>
+      </section>
+
+      <section class="card-grid">
+        <SectionCard title="Body of Work">
+          <p>Describe the mood, material or recurring visual language of the paintings here.</p>
+        </SectionCard>
+        <SectionCard title="Notes">
+          <p>Use this space for medium, scale, year or exhibition context.</p>
+        </SectionCard>
+      </section>
+
+      <section class="gallery-grid gallery-grid--paintings">
+        <div class="gallery-tile"></div>
+        <div class="gallery-tile gallery-tile--wide"></div>
+        <div class="gallery-tile"></div>
+      </section>
+
+      <Footer />
+    </main>
+  </div>
+</BaseLayout>

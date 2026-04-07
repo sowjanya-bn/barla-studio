@@ -1,0 +1,125 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const links = {
+  github: "https://github.com/sowjanya-bn",
+  linkedin: "https://www.linkedin.com/in/naga-sowjanya-barla/",
+  email: "mailto:nagasowjanya.barla@gmail.com",
+  paper: "https://arxiv.org/abs/2604.02545"
+};
+---
+
+<BaseLayout title="Sowjanya">
+  <div class="site-shell">
+    <main class="page">
+
+      <section class="page-header">
+        <div class="page-copy">
+          <div class="kicker">SYSTEMS · DATA · AI · QUIETLY BUILT</div>
+          <div class="hero-accent"></div>
+          <h1>Naga Sowjanya Barla</h1>
+
+          <p class="hero-text">
+            I build systems.
+
+            For a long time that meant backend and distributed systems.
+            Lately, I’ve been drawn to how structured knowledge, retrieval and language models
+            can be shaped into systems that actually behave well.
+
+            I care about clarity, structure and things making sense.
+          </p>
+
+          <div class="actions">
+            <a class="button button--solid" href={links.github} target="_blank" rel="noreferrer">GitHub</a>
+            <a class="button" href={links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="button" href={links.email}>Email</a>
+          </div>
+
+          <div class="quote-block">
+            Curious. Always after simplicity and clarity.
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="mini-card">
+            <div class="mini-title">Focus</div>
+            <ul>
+              <li>Systems that are simple on the surface but well-structured underneath</li>
+            <li>Backend and distributed architectures</li>
+            <li>Data and structured representations of information</li>
+            <li>AI systems that are grounded, not just impressive</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-title">Now</div>
+            <p>
+              Interested in systems that remain simple, stable and predictable,
+              even as they grow.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-grid">
+
+        <article class="card">
+          <h2>Recent Work</h2>
+
+            <div class="work-item">
+              <h3>RAG-based Digital Storytelling</h3>
+              <p>
+                Exploring how structured knowledge graphs and retrieval pipelines can be combined
+                with language models to produce grounded, narrative outputs.
+              </p>
+              <a href="https://github.com/sowjanya-bn" target="_blank">View project</a>
+            </div>
+
+            <div class="work-item">
+              <h3>KG + SPARQL Retrieval Experiments</h3>
+              <p>
+                Working through different ways of retrieving and structuring knowledge for use
+                in LLM workflows, focusing on grounding and consistency.
+              </p>
+            </div>
+
+            <div class="work-item">
+              <h3>RAG Evaluation and Behaviour</h3>
+              <p>
+                Looking at how to evaluate retrieval-augmented systems beyond surface-level correctness,
+                with a focus on coverage and coherence.
+              </p>
+            </div>
+        </article>
+
+        <article class="card">
+          <h2>Experience</h2>
+          <p>
+            I’ve spent over a decade building backend systems in telecom and enterprise environments.
+
+            Most of that work has been about APIs, integrations and distributed systems — getting different parts of a system to talk to each other reliably and predictably.
+
+            That way of thinking still shapes how I approach everything else.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Publications</h2>
+          <h3>Competency Questions as Executable Plans</h3>
+          <p>
+            Controlled RAG architecture for cultural heritage storytelling.
+          </p>
+          <p>
+            arXiv preprint · <strong>Accepted at ESWC 2026</strong>
+          </p>
+          <p>
+            <a class="button" href={links.paper} target="_blank" rel="noreferrer">
+              View paper
+            </a>
+          </p>
+        </article>
+      </section>
+
+    </main>
+  </div>
+</BaseLayout>

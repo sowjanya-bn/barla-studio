@@ -1,0 +1,15 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<header class={`topbar ${compact ? 'topbar--compact' : ''}`}>
+  <a class="brand" href="/">Barla Studio</a>
+  <nav class="nav" aria-label="Primary navigation">
+    <a href="/sowjanya">Sowjanya</a>
+    <a href="/bhargav">Bhargav</a>
+  </nav>
+</header>

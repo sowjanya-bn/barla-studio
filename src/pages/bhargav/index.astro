@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Bhargav" description="Artist profile for Bhargav: painting, photography and photo books.">
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><a href="/">Barla Studio</a></div>
+      <nav class="nav">
+        <a href="/bhargav/">Profile</a>
+        <a href="/bhargav/photography/">Photography</a>
+        <a href="/bhargav/paintings/">Paintings</a>
+        <a href="/bhargav/books/">Photo books</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="kicker">Artist profile</div>
+          <h1 class="display">Bhargav</h1>
+          <p class="lead">
+            A visual practice moving through photography, painting and photo books. The atmosphere is editorial,
+            tactile and quietly cinematic, with room for single works and sequenced bodies of work alike.
+          </p>
+          <div class="actions">
+            <a class="button solid" href="/bhargav/books/">View books</a>
+            <a class="button" href="/bhargav/photography/">View photography</a>
+            <a class="button" href="mailto:bhargav@example.com">Contact</a>
+          </div>
+          <div class="quote">Light, texture and sequencing held together with a slower way of looking.</div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="/images/bhargav-artist.svg" alt="Editorial-style artwork for Bhargav's artist page" />
+        </div>
+      </section>
+
+      <section class="section grid-3">
+        <article class="tile">
+          <div>
+            <div class="meta">Photography</div>
+            <h3>Image-led work</h3>
+            <p>Selected still images, series and atmospheric studies arranged with generous spacing.</p>
+          </div>
+          <a class="button" href="/bhargav/photography/">Open photography</a>
+        </article>
+
+        <article class="tile">
+          <div>
+            <div class="meta">Paintings</div>
+            <h3>Surface and gesture</h3>
+            <p>Painterly work can live here with series notes, medium details and selected compositions.</p>
+          </div>
+          <a class="button" href="/bhargav/paintings/">Open paintings</a>
+        </article>
+
+        <article class="tile">
+          <div>
+            <div class="meta">Photo books</div>
+            <h3>Sequenced bodies of work</h3>
+            <p>Perfect for editions, zines and longer visual narratives where pacing matters as much as the images.</p>
+          </div>
+          <a class="button" href="/bhargav/books/">Open books</a>
+        </article>
+      </section>
+    </main>
+
+    <div class="footer-note">This side is already structured to grow into a fuller artist portfolio without changing the shared setup.</div>
+  </div>
+</BaseLayout>

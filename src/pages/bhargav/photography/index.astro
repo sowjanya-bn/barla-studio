@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const works = [
+  { title: "Quiet Facades", note: "Urban stillness and shadow studies", image: "/images/photo-01.svg" },
+  { title: "Passing Light", note: "Soft transitions, interiors and windows", image: "/images/photo-02.svg" },
+  { title: "After Rain", note: "Atmosphere, reflection and muted colour", image: "/images/photo-03.svg" }
+];
+---
+
+<BaseLayout title="Bhargav | Photography" description="Selected photography by Bhargav.">
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><a href="/bhargav/">Bhargav</a></div>
+      <nav class="nav">
+        <a href="/bhargav/">Overview</a>
+        <a href="/bhargav/paintings/">Paintings</a>
+        <a href="/bhargav/books/">Photo books</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-intro">
+        <div class="kicker">Photography</div>
+        <h1>Selected image work</h1>
+        <p>Use this page for featured photographs, short series descriptions and eventually linked project pages.</p>
+      </section>
+
+      <section class="grid-3">
+        {works.map((work) => (
+          <article class="gallery-card">
+            <div class="thumb"><img src={work.image} alt={work.title} /></div>
+            <div class="meta">Series</div>
+            <h3>{work.title}</h3>
+            <p>{work.note}</p>
+          </article>
+        ))}
+      </section>
+    </main>
+
+    <div class="footer-note">Replace the placeholder artwork with real photographs when ready.</div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const books = [
+  {
+    title: "Between Frames",
+    type: "Photo book",
+    blurb: "A placeholder entry for a book built around atmosphere, pacing and image sequence.",
+    image: "/images/book-01.svg"
+  },
+  {
+    title: "Soft Distances",
+    type: "Edition / zine",
+    blurb: "Use this section for edition notes, format, release information and a preview spread.",
+    image: "/images/book-02.svg"
+  }
+];
+---
+
+<BaseLayout title="Bhargav | Photo Books" description="Photo books and editions by Bhargav.">
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><a href="/bhargav/">Bhargav</a></div>
+      <nav class="nav">
+        <a href="/bhargav/">Overview</a>
+        <a href="/bhargav/photography/">Photography</a>
+        <a href="/bhargav/paintings/">Paintings</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-intro">
+        <div class="kicker">Photo books</div>
+        <h1>Sequenced visual narratives</h1>
+        <p>
+          This page is designed for books, zines and editions. It already fits slower visual projects where the sequence matters,
+          not just the single image.
+        </p>
+      </section>
+
+      <section class="grid-2">
+        {books.map((book) => (
+          <article class="book-card">
+            <div class="thumb"><img src={book.image} alt={book.title} /></div>
+            <div class="meta">{book.type}</div>
+            <h3>{book.title}</h3>
+            <p>{book.blurb}</p>
+            <a class="button" href="#">Add preview or project page</a>
+          </article>
+        ))}
+      </section>
+    </main>
+
+    <div class="footer-note">Later, each book can become its own route with spreads, notes and purchase details if needed.</div>
+  </div>
+</BaseLayout>

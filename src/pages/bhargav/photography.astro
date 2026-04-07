@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import SectionCard from "../../components/SectionCard.astro";
+---
+
+<BaseLayout title="Bhargav Photography | Barla Studio" description="Photography portfolio section for Bhargav.">
+  <div class="site-shell">
+    <main class="page page--artist">
+      <div class="frame frame--soft">
+        <Header compact />
+      </div>
+
+      <section class="subpage-hero">
+        <div>
+          <div class="kicker">Bhargav / Photography</div>
+          <h1>Photography</h1>
+          <p>
+            A place for selected photographs, image sequences and visual studies.
+            Replace these placeholders with real projects, series titles and short notes.
+          </p>
+        </div>
+        <a class="button" href="/bhargav">Back to artist profile</a>
+      </section>
+
+      <section class="card-grid">
+        <SectionCard title="Series One">
+          <p>Add a short description for a photography series here.</p>
+        </SectionCard>
+        <SectionCard title="Series Two">
+          <p>Add another body of work here with a stronger curatorial sentence.</p>
+        </SectionCard>
+      </section>
+
+      <section class="gallery-grid">
+        <div class="gallery-tile gallery-tile--tall"></div>
+        <div class="gallery-tile"></div>
+        <div class="gallery-tile"></div>
+        <div class="gallery-tile gallery-tile--wide"></div>
+      </section>
+
+      <Footer />
+    </main>
+  </div>
+</BaseLayout>
