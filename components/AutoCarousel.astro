@@ -1,0 +1,67 @@
+---
+interface Props {
+  title?: string;
+  images: { src: string; alt: string }[];
+  intervalMs?: number;
+}
+
+const {
+  title = "",
+  images = [],
+  intervalMs = 3200
+} = Astro.props;
+---
+
+<section class="auto-carousel" data-interval={intervalMs}>
+  {title && <div class="carousel-title">{title}</div>}
+
+  <div class="carousel-shell">
+    <div class="carousel-track">
+      {images.concat(images).map((image, index) => (
+        <figure class="carousel-item" aria-hidden={index >= images.length ? "true" : "false"}>
+          <img src={image.src} alt={image.alt} loading="lazy" />
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const carousels = document.querySelectorAll(".auto-carousel");
+
+  carousels.forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
+    const shell = carousel.querySelector(".carousel-shell");
+    if (!track || !shell) return;
+
+    const interval = Number(carousel.getAttribute("data-interval")) || 3200;
+    const items = track.querySelectorAll(".carousel-item");
+    const total = items.length / 2;
+
+    let index = 0;
+
+    const move = () => {
+      const firstItem = track.querySelector(".carousel-item");
+      if (!firstItem) return;
+
+      const gap = 16;
+      const itemWidth = firstItem.getBoundingClientRect().width + gap;
+      index += 1;
+
+      track.style.transition = "transform 0.7s ease";
+      track.style.transform = `translateX(-${index * itemWidth}px)`;
+
+      if (index >= total) {
+        setTimeout(() => {
+          track.style.transition = "none";
+          track.style.transform = "translateX(0)";
+          index = 0;
+        }, 750);
+      }
+    };
+
+    const timer = setInterval(move, interval);
+
+    carousel.addEventListener("mouseenter", () => clearInterval(timer));
+  });
+</script>

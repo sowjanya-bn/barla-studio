@@ -1,0 +1,28 @@
+---
+interface Props {
+  href: string;
+  kicker: string;
+  title: string;
+  text: string;
+  variant?: 'minimal' | 'art';
+  buttonText?: string;
+}
+
+const {
+  href,
+  kicker,
+  title,
+  text,
+  variant = 'minimal',
+  buttonText = 'Enter'
+} = Astro.props;
+---
+
+<a class={`panel panel--${variant}`} href={href}>
+  <div class="kicker">{kicker}</div>
+  <h1 class="display">{title}</h1>
+  <p class="subtle">{text}</p>
+  <div class="actions">
+    <span class={`button ${variant === 'minimal' ? 'button--solid' : ''}`}>{buttonText}</span>
+  </div>
+</a>
