@@ -1,16 +1,18 @@
 ---
 import BhargavLayout from "../../layouts/BhargavLayout.astro";
+const base = import.meta.env.BASE_URL;
 
 const photography = [
-  { src: "/images/photo-01.png", alt: "Photography placeholder 1" },
-  { src: "/images/photo-02.png", alt: "Photography placeholder 2" },
-  { src: "/images/photo-03.png", alt: "Photography placeholder 3" }
+
+  { src: `${base}/images/photo-01.png`, alt: "Photography placeholder 1" },
+  { src: `${base}/images/photo-02.png`, alt: "Photography placeholder 2" },
+  { src: `${base}/images/photo-03.png`, alt: "Photography placeholder 3" }
 ];
 
 const paintings = [
-  { src: "/images/painting-01.png", alt: "Painting placeholder 1" },
-  { src: "/images/painting-02.png", alt: "Painting placeholder 2" },
-  { src: "/images/painting-03.png", alt: "Painting placeholder 3" }
+  { src: `${base}/images/painting-01.png`, alt: "Painting placeholder 1" },
+  { src: `${base}/images/painting-02.png`, alt: "Painting placeholder 2" },
+  { src: `${base}/images/painting-03.png`, alt: "Painting placeholder 3" }
 ];
 ---
 

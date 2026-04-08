@@ -8,11 +8,13 @@ interface Props {
 
 const { title, description = "Bhargav" } = Astro.props;
 
+const base = import.meta.env.BASE_URL;
+
 const navItems = [
-  { href: "/bhargav/", label: "Home" },
-  { href: "/bhargav/photobook/", label: "Photobook" },
-  { href: "/bhargav/exhibitions/", label: "Exhibitions" },
-  { href: "/bhargav/contact/", label: "Contact" }
+  { href: `${base}/bhargav/`, label: "Home" },
+  { href: `${base}/bhargav/photobook/`, label: "Photobook" },
+  { href: `${base}/bhargav/exhibitions/`, label: "Exhibitions" },
+  { href: `${base}/bhargav/contact/`, label: "Contact" }
 ];
 
 const currentPath = Astro.url.pathname;
