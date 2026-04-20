@@ -371,7 +371,66 @@ p { margin: 0; color: var(--ink-soft); }
   margin-bottom: 0.6rem;
 }
 
-/* Hero accent line */
+/* ── BUILDS PAGE ── */
+.builds-page-intro {
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.builds-page-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+/* ── SELECTED BUILDS ── */
+.builds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.build-item {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.build-item:hover {
+  border-color: var(--sage-border);
+}
+
+.build-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.45rem;
+  letter-spacing: -0.01em;
+}
+
+.build-desc {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin-bottom: 0.8rem;
+}
+
+.build-lang {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+/* ── HERO ACCENT LINE ── */
 .hero-accent {
   width: 40px;
   height: 2px;
@@ -417,4 +476,5 @@ p { margin: 0; color: var(--ink-soft); }
     grid-column: span 12;
   }
   .mini-card { flex: 1 1 100%; }
+  .builds-grid { grid-template-columns: 1fr; }
 }
