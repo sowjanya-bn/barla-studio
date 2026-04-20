@@ -1,0 +1,122 @@
+---
+import SowjanyaLayout from "../../../layouts/SowjanyaLayout.astro";
+
+interface Repo {
+  name: string;
+  description: string;
+  url: string;
+  lang: string;
+}
+
+const FALLBACK: Repo[] = [
+  {
+    name: "sediment",
+    description: "Local-first text → structured signal extraction. Converts free-form reflective entries into stable, calibrated records stored in SQLite.",
+    url: "https://github.com/sowjanya-bn/sediment",
+    lang: "Python",
+  },
+  {
+    name: "colosseum",
+    description: "Multi-model ideation framework. Structured sessions where multiple LLMs interrogate the same problem from different angles.",
+    url: "https://github.com/sowjanya-bn/colosseum",
+    lang: "Python",
+  },
+  {
+    name: "day_pilot",
+    description: "Personal AI tooling for daily structure and reflection.",
+    url: "https://github.com/sowjanya-bn/day_pilot",
+    lang: "Python",
+  },
+  {
+    name: "blueprintai",
+    description: "AI-assisted system design and architecture tooling.",
+    url: "https://github.com/sowjanya-bn/blueprintai",
+    lang: "Python",
+  },
+];
+
+let repos: Repo[] = FALLBACK;
+
+// GH_PAT is a repository secret injected at build time — never sent to the browser.
+// Add it at: github.com/sowjanya-bn/barla-studio → Settings → Secrets → Actions → New secret
+// Required scope: read:user
+const token = import.meta.env.GH_PAT;
+
+if (token) {
+  try {
+    const query = `{
+      user(login: "sowjanya-bn") {
+        repositories(
+          first: 100,
+          orderBy: { field: PUSHED_AT, direction: DESC },
+          isFork: false,
+          isArchived: false,
+          privacy: PUBLIC
+        ) {
+          nodes {
+            name
+            description
+            url
+            primaryLanguage { name }
+          }
+        }
+      }
+    }`;
+
+    const res = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({ query }),
+    });
+
+    if (res.ok) {
+      const { data } = await res.json();
+      const nodes: any[] = data?.user?.repositories?.nodes ?? [];
+      if (nodes.length > 0) {
+        repos = nodes.map(n => ({
+          name: n.name,
+          description: n.description ?? "",
+          url: n.url,
+          lang: n.primaryLanguage?.name ?? "",
+        }));
+      }
+    }
+  } catch {
+    // build-time fetch failed — fallback list renders instead
+  }
+}
+---
+
+<SowjanyaLayout title="Selected Builds — Naga Sowjanya Barla">
+  <div class="site-shell">
+    <main class="page">
+
+      <div class="builds-page-intro">
+        <div class="kicker">Projects · Tools · Experiments</div>
+        <h1 class="builds-page-title">Selected<br/>Builds</h1>
+        <div class="hero-accent"></div>
+        <p class="hero-text">Public projects, ordered by most recent activity.</p>
+      </div>
+
+      <div class="builds-grid">
+        {repos.map(repo => (
+          <a class="build-item" href={repo.url} target="_blank" rel="noreferrer">
+            <div class="build-name">{repo.name}</div>
+            <div class="build-desc">{repo.description}</div>
+            {repo.lang && <div class="build-lang">{repo.lang}</div>}
+          </a>
+        ))}
+      </div>
+
+    </main>
+
+    <footer class="site-footer">
+      <span>Naga Sowjanya Barla</span>
+      <a href="/" style="font-size:0.78rem; opacity:0.6;">← Barla Studio</a>
+    </footer>
+
+  </div>
+</SowjanyaLayout>
