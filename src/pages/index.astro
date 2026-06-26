@@ -1,60 +1,77 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-const base = import.meta.env.BASE_URL;
+import SowjanyaLayout from "../layouts/SowjanyaLayout.astro";
+
+const links = {
+  springer: "https://doi.org/10.1007/978-3-032-25156-5_25",
+  arxiv: "https://arxiv.org/abs/2604.02545"
+};
 ---
 
-<BaseLayout title="Barla Studio" description="Two independent creative paths under one quiet roof.">
-  <div class="landing-wrap">
-    <header class="landing-header">
-      <span class="landing-wordmark">Barla Studio</span>
-      <span class="landing-tagline">Two paths · One roof</span>
-    </header>
+<SowjanyaLayout title="Naga Sowjanya Barla">
+  <div class="site-shell">
 
-    <main class="landing-hero">
-      <!-- Sowjanya panel -->
-      <a href={`${base}/sowjanya/`} class="panel panel--sowjanya">
-        <span class="panel-num" aria-hidden="true">I</span>
-        <div class="panel-content">
-          <p class="panel-kicker">Systems · Data · AI</p>
-          <h2 class="panel-name">Sowjanya</h2>
-          <p class="panel-desc">
-            Building systems that are simple on the surface, well-structured underneath.
-            Backend, distributed architectures, and AI that behaves well.
-          </p>
-          <span class="panel-link">
-            Enter
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 8h10M9 4l4 4-4 4"/>
-            </svg>
-          </span>
-        </div>
-      </a>
+    <main class="page">
 
-      <div class="landing-or" aria-hidden="true">or</div>
+      <div class="tab-bar">
+        <button class="tab-btn is-active" data-tab="projects">Projects</button>
+        <button class="tab-btn" data-tab="publications">Publications</button>
+      </div>
 
-      <!-- Bhargav panel -->
-      <a href={`${base}/bhargav/`} class="panel panel--bhargav">
-        <span class="panel-num" aria-hidden="true">II</span>
-        <div class="panel-content">
-          <p class="panel-kicker">Photography · Painting · Photobook</p>
-          <h2 class="panel-name">Bhargav</h2>
-          <p class="panel-desc">
-            A visual practice rooted in coastal memory — interpreted through light,
-            atmosphere and the quiet between moments.
-          </p>
-          <span class="panel-link">
-            Enter
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 8h10M9 4l4 4-4 4"/>
-            </svg>
-          </span>
-        </div>
-      </a>
+      <div class="tab-panel" id="tab-projects">
+        <article class="card card--full">
+          <div class="work-item">
+            <h3>Sonora — Embodied Museum Dialogue</h3>
+            <p>KG-grounded conversational agent for the British Music Experience. Built on Furhat. Epistemic honesty as a first-class dialogue objective.</p>
+          </div>
+          <div class="work-item">
+            <h3>BME Knowledge Graph</h3>
+            <p>Knowledge graph for the British Music Experience. 5,972 entities, 15,953 relationships. Live with SPARQL-backed retrieval.</p>
+          </div>
+          <div class="work-item">
+            <h3>Memoria</h3>
+            <p>Domain-agnostic RDF knowledge graph explorer. Deployed against the BME KG.</p>
+          </div>
+          <div class="work-item">
+            <h3>Echo</h3>
+            <p>Furhat-based proof of concept for KG-grounded museum dialogue. Direct predecessor to Sonora.</p>
+          </div>
+          <div class="work-item">
+            <h3>DayPilot</h3>
+            <p>Local-first daily planning app. Optional bring-your-own-key LLM reflection layer. React Native.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="tab-panel" id="tab-publications" hidden>
+        <article class="card card--full">
+          <span class="pub-badge">Accepted · ESWC 2026 · Best Student Paper Nomination</span>
+          <h3 style="margin-top: 0.75rem;">Competency Questions as Executable Plans</h3>
+          <p style="margin: 0.3rem 0 0.2rem;">A Controlled RAG Architecture for Cultural Heritage Storytelling</p>
+          <p style="margin-bottom: 1.2rem; opacity: 0.55; font-size: 0.85rem;">Naga Sowjanya Barla and Jacopo de Berardinis</p>
+          <a class="button" href={links.springer} target="_blank" rel="noreferrer">Springer →</a>
+          <a class="button" href={links.arxiv} target="_blank" rel="noreferrer">arXiv →</a>
+        </article>
+      </div>
+
     </main>
 
-    <footer class="landing-footer">
-      <span>Barla Studio — shared host, separate worlds</span>
-      <span>© 2025</span>
+    <footer class="site-footer">
+      <span>Naga Sowjanya Barla</span>
     </footer>
+
   </div>
-</BaseLayout>
+</SowjanyaLayout>
+
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+  const panels = document.querySelectorAll<HTMLElement>('.tab-panel');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('is-active'));
+      panels.forEach(p => p.hidden = true);
+      btn.classList.add('is-active');
+      document.getElementById('tab-' + btn.dataset.tab)!.hidden = false;
+    });
+  });
+</script>

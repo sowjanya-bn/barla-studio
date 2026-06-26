@@ -8,7 +8,6 @@ interface Props {
 
 const { title, description = "Naga Sowjanya Barla" } = Astro.props;
 
-const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -24,13 +23,34 @@ const base = import.meta.env.BASE_URL;
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+    <!-- Visitor beacon — replace https://script.google.com/macros/s/AKfycbzjgEVi0b5ffrCfGxY0r5wJS6_kY-G4cmflw3bX3Wo0cmf6PMiLANuBUEeWF-RBWU8vPA/exec with your deployed Apps Script URL -->
+    <script>
+    (function() {
+      try {
+        fetch('https://script.google.com/macros/s/AKfycbzjgEVi0b5ffrCfGxY0r5wJS6_kY-G4cmflw3bX3Wo0cmf6PMiLANuBUEeWF-RBWU8vPA/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            timestamp: new Date().toISOString(),
+            page: window.location.pathname,
+            referrer: document.referrer || 'direct',
+            userAgent: navigator.userAgent,
+            language: navigator.language || '',
+            screen: screen.width + 'x' + screen.height
+          })
+        });
+      } catch(e) {}
+    })();
+    </script>
   </head>
   <body>
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="site-title" href={`${base}/sowjanya/`}></a>
+        <a class="site-title" href="/">Naga Sowjanya Barla</a>
         <nav class="site-nav" aria-label="Primary">
-          <a href={`${base}/sowjanya/builds/`}>Builds</a>
+          <a href="/builds/">Builds</a>
+          <a href="/research/">Research</a>
           <a href="https://github.com/sowjanya-bn" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/naga-sowjanya-barla/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="mailto:nagasowjanya.barla@gmail.com">Email</a>

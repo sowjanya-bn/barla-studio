@@ -1,5 +1,5 @@
 ---
-import SowjanyaLayout from "../../../layouts/SowjanyaLayout.astro";
+import SowjanyaLayout from "../../layouts/SowjanyaLayout.astro";
 
 interface Repo {
   name: string;
@@ -94,13 +94,6 @@ if (token) {
   <div class="site-shell">
     <main class="page">
 
-      <div class="builds-page-intro">
-        <div class="kicker">Projects · Tools · Experiments</div>
-        <h1 class="builds-page-title">Selected<br/>Builds</h1>
-        <div class="hero-accent"></div>
-        <p class="hero-text">Public projects, ordered by most recent activity.</p>
-      </div>
-
       <div class="builds-grid">
         {repos.map(repo => (
           <a class="build-item" href={repo.url} target="_blank" rel="noreferrer">
@@ -115,7 +108,7 @@ if (token) {
 
     <footer class="site-footer">
       <span>Naga Sowjanya Barla</span>
-      <a href="/" style="font-size:0.78rem; opacity:0.6;">← Barla Studio</a>
+      <a href="/" style="font-size:0.78rem; opacity:0.6;">← Home</a>
     </footer>
 
   </div>

@@ -439,6 +439,41 @@ p { margin: 0; color: var(--ink-soft); }
   border-radius: 999px;
 }
 
+/* ── TABS ── */
+.tab-bar {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  background: none;
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab-btn:hover {
+  background: var(--sage-light);
+  color: var(--sage);
+}
+
+.tab-btn.is-active {
+  background: var(--sage-light);
+  color: var(--sage);
+  font-weight: 500;
+}
+
+.card--full {
+  grid-column: span 12;
+}
+
 /* ── FOOTER ── */
 .site-footer {
   position: relative;
