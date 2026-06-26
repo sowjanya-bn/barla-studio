@@ -8,7 +8,7 @@ A lightweight Astro starter for a shared host with independent paths:
 - `/bhargav/paintings/`
 - `/bhargav/books/`
 
-## Run locally
+## Run locally 
 
 ```bash
 npm install
